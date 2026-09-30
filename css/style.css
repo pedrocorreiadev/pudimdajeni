@@ -174,6 +174,7 @@ a {
 }
 
 .btn-card {
+  margin-top: auto;
   width: 100%;
   color: var(--warm-white);
   background: var(--coffee);
@@ -181,7 +182,9 @@ a {
 
 .btn-large {
   min-height: 56px;
+  max-width: 100%;
   padding-inline: 26px;
+  text-align: center;
 }
 
 .btn svg {
@@ -566,14 +569,21 @@ h3 {
   content: "";
   position: absolute;
   right: 7%;
-  top: 18%;
-  width: 150px;
-  height: 150px;
-  border: 1px solid rgba(166, 83, 33, 0.22);
-  border-radius: 43% 57% 54% 46%;
+  top: 16%;
+  width: 156px;
+  height: 156px;
+  border: 8px solid rgba(255, 252, 247, 0.8);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 252, 247, 0), rgba(81, 39, 25, 0.14)),
+    url("../assets/images/pudim-artesanal-hero.png") center / cover;
+  box-shadow: 0 18px 46px rgba(81, 39, 25, 0.13);
+  pointer-events: none;
 }
 
 .about-text {
+  position: relative;
+  z-index: 1;
   max-width: 740px;
 }
 
@@ -736,17 +746,17 @@ h3 {
   right: 18px;
   bottom: 18px;
   z-index: 45;
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 62px;
   height: 62px;
   color: var(--coffee);
   background: var(--cream);
   border: 2px solid rgba(166, 83, 33, 0.42);
-  border-radius: 45% 55% 50% 50% / 55% 42% 58% 45%;
+  border-radius: 50%;
   box-shadow: 0 18px 40px rgba(81, 39, 25, 0.18);
   transition: transform 0.22s ease;
-  animation: caramelBreath 4.5s ease-in-out infinite;
 }
 
 .whatsapp-float::before {
@@ -755,7 +765,7 @@ h3 {
   inset: -8px;
   z-index: -1;
   border: 3px solid rgba(199, 122, 40, 0.36);
-  border-radius: 53% 47% 46% 54% / 44% 56% 44% 56%;
+  border-radius: 50%;
 }
 
 .whatsapp-float svg {
@@ -767,6 +777,7 @@ h3 {
 .whatsapp-float span {
   position: absolute;
   right: 74px;
+  top: 50%;
   width: max-content;
   max-width: 180px;
   padding: 9px 12px;
@@ -775,9 +786,11 @@ h3 {
   color: var(--cream);
   font-size: 0.82rem;
   font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(8px);
+  transform: translate(8px, -50%);
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
@@ -787,7 +800,7 @@ h3 {
 
 .whatsapp-float:hover span {
   opacity: 1;
-  transform: translateX(0);
+  transform: translate(0, -50%);
 }
 
 .reveal {
@@ -824,6 +837,10 @@ h3 {
 }
 
 @media (max-width: 767px) {
+  .about::before {
+    display: none;
+  }
+
   .whatsapp-float span {
     display: none;
   }
